@@ -42,11 +42,9 @@ int main()
 	/*Zad 4
 	char letter;
 	std::cin >> letter;
-	int code = letter;
 	
-	if (code >= 65 && code <= 90) {
-		code += 32;
-		letter = code;
+	if (letter >= 65 && letter <= 90) {
+		letter += 32;
 		std::cout << letter << std::endl;
 
 		if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u') {
@@ -56,9 +54,8 @@ int main()
 			std::cout << "Consonant";
 		}
 	}
-	else if (code >= 97 && code <= 122) {
-		code -= 32;
-		letter = code;
+	else if (letter >= 97 && letter <= 122) {
+		letter -= 32;
 		std::cout << letter << std::endl;
 
 		if (letter == 'A' || letter == 'E' || letter == 'I' || letter == 'O' || letter == 'U') {
@@ -131,7 +128,7 @@ int main()
 	} */
 
 	/*Zad 8
-	int r, x, y;
+	double r, x, y;
 	std::cin >> r >> x >> y;
 	if (x * x + y * y == r * r) {
 		std::cout << "On the circle";
@@ -146,7 +143,11 @@ int main()
 	/*Zad 9
 	int day, month, year;
 	std::cin >> day >> month >> year;
-	std::cout << (day >= 1 && day <= 31) && (month >= 1 && month <= 12) && (year >= 1000 && year <= 3000);*/
+	if ((month == 2 && day > 29) || (month % 2 == 0 && day > 30)) {
+		std::cout << 0;
+	} else {
+		std::cout << (day >= 1 && day <= 31) && (month >= 1 && month <= 12) && (year >= 1000 && year <= 3000);
+	}*/
 
 	/*Zad 10
 	double x, y;

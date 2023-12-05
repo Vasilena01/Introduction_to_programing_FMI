@@ -1,0 +1,4 @@
+﻿  KONTROLNO 2.cpp
+D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Praktikum\KONTROLNO 2\KONTROLNO 2.cpp(86,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Praktikum\KONTROLNO 2\KONTROLNO 2.cpp(66): warning C4715: 'findIndexOfMatchingElement': not all control paths return a value
+  KONTROLNO 2.vcxproj -> D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Praktikum\KONTROLNO 2\x64\Debug\KONTROLNO 2.exe

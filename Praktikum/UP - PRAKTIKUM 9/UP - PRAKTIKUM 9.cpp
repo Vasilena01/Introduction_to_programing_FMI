@@ -31,7 +31,7 @@ int getMinElementFromMatrix(const int matrix[][SIZE], size_t firstSize, size_t s
 	int minElement = matrix[0][0];
 	for (int i = 0; i < secondSize; i++)
 	{
-		
+
 		for (int j = 0; j < secondSize; j++)
 		{
 			if (minElement >= matrix[i][j])
@@ -99,6 +99,7 @@ bool isMatrixTriangle(const int matrix[][SIZE], size_t size)
 			}
 		}
 
+		// ??? check proverkata
 		if (zerosCount == i)
 		{
 			isTriangle = true;
@@ -161,7 +162,7 @@ bool isMatrixMagicSquare(const int matrix[][SIZE], size_t size)
 }*/
 
 /*Zad 7
-void getSumAndProductMulOfMatrices(const int firstMatrix[][SIZE], const int secondMatrix[][SIZE], int resultSum[][SIZE], int resultProduct[][SIZE], 
+void getSumAndProductMulOfMatrices(const int firstMatrix[][SIZE], const int secondMatrix[][SIZE], int resultSum[][SIZE], int resultProduct[][SIZE],
 	size_t sizeRows, size_t sizeCols, int num)
 {
 	// Geting the sum of first & second matrices
@@ -216,40 +217,52 @@ void printTopRow(const int matrix[SIZE][SIZE], int currentRow, int cols)
 	}
 }
 
-//void printRightCol(const int matrix[SIZE][SIZE], int currentRow, int rows)
-//{
-//	for (int r = currentRow - 1; r < rows; r++)
-//	{
-//		std::cout << matrix[rows - r][rows - currentRow];
-//	}
-//}
-//
-//void printBottomRow(const int matrix[SIZE][SIZE], int currentRow, int cols, int rows)
-//{
-//	for (int c = currentRow - 1; c <= cols; c++)
-//	{
-//		std::cout << matrix[rows - currentRow][cols - c];
-//	}
-//}
-//
-//void printLeftCol(const int matrix[SIZE][SIZE], int currentRow, int cols, int rows)
-//{
-//	for (int r = currentRow - 1; r <= rows; r++)
-//	{
-//		std::cout << matrix[r][currentRow];
-//	}
-//}
+void printRightCol(const int matrix[SIZE][SIZE], int currentRow, int rows)
+{
+	for (int r = currentRow - 1; r < rows; r++)
+	{
+		std::cout << matrix[rows - r][rows - currentRow];
+	}
+}
+
+void printBottomRow(const int matrix[SIZE][SIZE], int currentRow, int cols, int rows)
+{
+	for (int c = currentRow - 1; c <= cols; c++)
+	{
+		std::cout << matrix[rows - currentRow][cols - c];
+	}
+}
+
+void printLeftCol(const int matrix[SIZE][SIZE], int currentRow, int cols, int rows)
+{
+	for (int r = currentRow - 1; r <= rows; r++)
+	{
+		std::cout << matrix[r][currentRow];
+	}
+}
 
 void printElementsSpirally(const int matrix[SIZE][SIZE], size_t rows, size_t cols)
 {
 	for (int i = 0; i < rows; i++)
 	{
 		printTopRow(matrix, i, cols);
-		/*printRightCol(matrix, i, rows);
+		printRightCol(matrix, i, rows);
 		printBottomRow(matrix, i, cols, rows);
-		printLeftCol(matrix, i, cols, rows);*/
+		printLeftCol(matrix, i, cols, rows);
 	}
 }
+
+/*Zad 10
+void turnMatrixToTheRight(int matrix[][SIZE], int toTheRightMatrix[][SIZE], size_t rows, size_t colls)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < colls; j++)
+		{
+			toTheRightMatrix[i][colls - j - 1] = matrix[j][i];
+		}
+	}
+}*/
 
 int main()
 {
@@ -318,4 +331,12 @@ int main()
 	int sizeCols = 3;
 	int matrix[SIZE][SIZE] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
 	printElementsSpirally(matrix, sizeRows, sizeCols);
+
+	/*Zad 10
+	int sizeRows = 3;
+	int sizeCols = 3;
+	int matrix[SIZE][SIZE] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+	int toTheRightMatrix[SIZE][SIZE] = {};
+	turnMatrixToTheRight(matrix, toTheRightMatrix, sizeRows, sizeCols);
+	printNonSquareMatrix(toTheRightMatrix, sizeRows, sizeCols);*/
 }

@@ -58,6 +58,32 @@ void swapDigitWithGivenIndex(int& num, int position, int index)
 	}
 }*/
 
+/*Zad 6
+bool isfirstNumPermutationOfSecond(int num1, int num2)
+{
+	int count = 0;
+	int mask = num1 ^ num2; // if digits are == returns 0 as digit in mask, if not returns 1 as digit in mask
+	// Counting the number of occurences of the digit 1 in mask
+	while (mask != 0)
+	{
+		if (mask % 2 != 0)
+		{
+			count++;
+		}
+
+		mask /= 2;
+	}
+
+	// If one occures even times in mask, then num1 is permutation of num2
+	if (count % 2 == 0)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}*/
+
 /*Zad 8
 int getPowerOfTwo(int size)
 {
@@ -86,32 +112,6 @@ void countSubsets(const int* arr, size_t size)
 	for (int i = 0; i < pt; i++)
 	{
 		printSubsets(arr, size, i);
-	}
-}*/
-
-/*Zad 6
-bool isfirstNumPermutationOfSecond(int num1, int num2)
-{
-	int count = 0;
-	int mask = num1 ^ num2; // if digits are == returns 0 as digit in mask, if not returns 1 as digit in mask
-	// Counting the number of occurences of the digit 1 in mask
-	while (mask != 0)
-	{
-		if (mask % 2 != 0)
-		{
-			count++;
-		}
-
-		mask /= 2;
-	}
-
-	// If one occures even times in mask, then num1 is permutation of num2
-	if (count % 2 == 0)
-	{
-		return true;
-	}
-	else {
-		return false;
 	}
 }*/
 

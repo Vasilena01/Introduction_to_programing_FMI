@@ -94,6 +94,14 @@ void splitIntoIntervals(
     // Update February's days count depending if the year is leap or common
     updateFebruaryIfLeapYear(daysOfMonths, startYear);
 
+    // Return the current date if start and end intervals are equal
+    if (startYear == endYear && startMonth == endMonth && startDay == endDay)
+    {
+        std::cout << startYear << '-' << startMonth << '-' << startDay << " - ";
+        std::cout << startYear << '-' << startMonth << '-' << startDay << std::endl;
+        return;
+    }
+
     while (startYear < endYear || startMonth < endMonth || startDay <= endDay) {
         std::cout << startYear << '-' << startMonth << '-' << startDay << " - ";
 
@@ -113,10 +121,12 @@ void splitIntoIntervals(
 
         calendarChangeCheck(startYear, startMonth, startDay);
 
-        // Check if this is the final interval & the days left are less than max_interval_days
+        // Check if this is the final interval is bigger than endYear, endMonth, endDay
         if (startYear >= endYear && startMonth >= endMonth && (startDay - 1) > endDay) {
-            startDay = endDay + 1;
+            std::cout << endYear << '-' << endMonth << '-' << endDay << std::endl;
+            break;
         }
+       
         std::cout << startYear << '-' << startMonth << '-' << startDay - 1 << std::endl;
     }
 }

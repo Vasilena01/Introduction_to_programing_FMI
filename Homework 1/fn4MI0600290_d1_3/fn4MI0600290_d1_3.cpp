@@ -48,7 +48,7 @@ void getFinalResult(char marbles[], int marblesCount)
 
 	for (int i = 0; i < marblesCount; i++)
 	{
-		std::cout << marbles[i];
+		i == 0 ? std::cout << marbles[i] : std::cout << " " << marbles[i];
 	}
 }
 
@@ -151,8 +151,6 @@ void shootMarble(char marbles[], int& marblesCount, int shotsCount, int& shotInd
 		removeIdenticalMarbles(marbles, marblesCount, shotIndex, marbleToInsert);
 	}
 }
-
-
 
 int main()
 {

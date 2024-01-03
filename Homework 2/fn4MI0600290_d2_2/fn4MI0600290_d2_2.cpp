@@ -12,47 +12,36 @@
 */
 
 #include <iostream>
-int getTemplLen(const char* templ)
+
+bool isDigit(char ch)
 {
-	if (!templ)
-	{
-		return -1;
-	}
-
-	int count = 0;
-	while (*templ)
-	{
-		count++;
-		templ++;
-	}
-
-	return count;
+	return ch >= '0' && ch <= '9';
 }
 
-bool isPrefix(char textChar, char templChar)
+void countTemplateOccurences(const char*& textPtr, const char*& templPtr)
 {
-	if (templChar == textChar || templChar == '*' ||
-		(templChar == '%' && (textChar >= '0' && textChar <= '99')) ||
-		(templChar == '@' && ((textChar >= 'a' && textChar <= 'z') || (textChar >= 'A' && textChar <= 'Z'))))
+	while (*templPtr)
 	{
-		return true;
-	}
-	return false;
-}
+		if ((*textPtr == *templPtr) || (*templPtr == '@' && (*textPtr >= 'a' && *textPtr <= 'z')) || (*templPtr == '*'))
+		{
+			textPtr++;
+			templPtr++;
+		}
+		else if (*templPtr == '%' && isDigit(*textPtr))
+		{
+			//std::cout << *textPtr << " " << *templPtr;
+			if (isDigit(*(textPtr + 1)))
+			{
+				textPtr++;
+			}
 
-void countTemplateOccurences(char*& text, char* templ, int& count)
-{
-	if (!text || !templ)
-	{
-		return;
-	}
-
-	while (*templ && isPrefix(*text, *templ))
-	{
-		//std::cout << *text << " " << *templ << std::endl;
-		count++;
-		text++;
-		templ++;
+			textPtr++;
+			templPtr++;
+		}
+		else
+		{
+			break;
+		}
 	}
 }
 
@@ -64,34 +53,37 @@ int getTemlpOccurencesInText(char* text, char* templ)
 	}
 
 	int countOccurences = 0;
+	int textIndex = 0;
 
-	while (*text)
+	while (*text && *templ)
 	{
 		if (*text == '*' || *text == '%' || *text == '@')
 		{
-			std::cout << "Invalid text input." << std::endl;
+			std::cout << "Invalid input" << std::endl;
 			return -1;
 		}
 
-		if (isPrefix(*text, *templ))
-		{
-			countTemplateOccurences(text, templ, countOccurences);
-			continue;
-		}
+		const char* textPtr = text;
+		const char* templPtr = templ;
 
+		countTemplateOccurences(textPtr, templPtr);
+
+		if (!*templPtr)
+		{
+			countOccurences++;
+		}
 		text++;
 	}
 
-	int templLen = getTemplLen(templ);
-	return countOccurences / templLen;
+	return countOccurences;
 }
 
 int main()
 {
-	char text[] = "vasilena0101 245stvasilena0101";
-	char templ[] = "va*ilena%%01";
+	const int MAX_SIZE = 100;
+	char text[100] = "";
+	char templ[100] = "";
+	std::cin >> text >> templ;
 
-	int count = getTemlpOccurencesInText(text, templ);
-	
-	std::cout << count;
+	std::cout << getTemlpOccurencesInText(text, templ);
 }

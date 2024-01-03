@@ -75,7 +75,7 @@ char* nextPermutation(char* str)
 		}
 	}
 
-	// swaping the chars at position smallerChIndex & biggerChIndex
+	// swaping the chars at position smallerChIndex & biggerChIndex and all elements between them
 	swap(str[smallerChIndex], str[biggerChIndex]);
 
 	int start = smallerChIndex + 1;

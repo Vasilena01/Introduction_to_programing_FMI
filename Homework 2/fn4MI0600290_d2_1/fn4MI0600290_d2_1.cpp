@@ -25,11 +25,12 @@ int getStrLen(char* str)
 
 void getEncodedChar(char ch, char& resultChar)
 {
+	const int BIT_POSITION = 7;
 	int position = 3;
 	ch >>= 1;
 
 	// Checking current bit in ch
-	while (position <= 7)
+	while (position <= BIT_POSITION)
 	{
 		int mask = 1;
 		mask <<= position;
@@ -46,7 +47,7 @@ void getEncodedChar(char ch, char& resultChar)
 
 		position++;
 
-		if (position == 7)
+		if (position == BIT_POSITION)
 		{
 			break;
 		}
@@ -83,7 +84,7 @@ char* getEncodedStr(char* str)
 	
 	int i = 0;
 
-	while (*str && i < encodedStrLen && *encoded)
+	while (*str && i < encodedStrLen)
 	{
 		char firstHalfResultCh = 0, secondHalfResultCh = 0;
 		splitIntoTwoChars(*str, firstHalfResultCh, secondHalfResultCh);

@@ -52,7 +52,7 @@ void printArr(const int* arr, size_t size)
 {
     for (int i = 0; i < size; i++)
     {
-        std::cout << arr[i];
+        std::cout << arr[i] << " ";
     }
 }
 
@@ -63,7 +63,7 @@ void swap(int& a, int& b)
     b = temp;
 }
 
-/*Bubble Sort
+/*Bubble Sort*/
 void bubbleSort(int* arr, size_t size)
 {
     if (!arr)
@@ -93,7 +93,7 @@ void bubbleSort(int* arr, size_t size)
         lastSwappedIndex = currentSwappedIndex;
     }
     printArr(arr, size);
-}*/
+}
 
 /*Selection sort
 void selectionSort(int* arr, size_t size)
@@ -119,7 +119,7 @@ void selectionSort(int* arr, size_t size)
 }*/
 
 /*Insertion Sort
-void insertionSort(int* arr, size_t size)
+int* insertionSort(int* arr, size_t size)
 {
     for (int i = 1; i < size; i++)
     {
@@ -133,6 +133,7 @@ void insertionSort(int* arr, size_t size)
 
         arr[currentIndex + 1] = currentElement;
     }
+    return arr;
 }*/
 
 /*Recursion - Zadachi ot praktikum 14*/
@@ -218,6 +219,21 @@ bool isPrime(int num)
     return isPrimeRec(num, divisor);
 }*/
 
+/*Find first missing num in arr
+int getFirstMissingNum(int* arr, size_t size)
+{
+    arr = insertionSort(arr, size);
+    for (int i = 0; i < size; i++)
+    {
+        if (!(arr[i] == arr[i + 1]) && !(arr[i] == arr[i + 1] - 1))
+        {
+            return arr[i] + 1;
+        }
+    }
+
+    return 0;
+}*/
+
 int main()
 {
     /*Strings*/
@@ -227,13 +243,14 @@ int main()
     removeNumsFromString(str, product);
     std::cout << product << " " << str;*/
 
-    /*Sorting Algorithms
-    constexpr int size = 5;
-    int arr[size] = { 1, 4, 5, 3, 2 };
-    //bubbleSort(arr, size);
+    /*Sorting Algorithms*/
+    constexpr int size = 7;
+    int arr[size] = { 39, 4, 6, 1, 2, 66, 33 };
+    bubbleSort(arr, size);
     //selectionSort(arr, size);
-    //insertionSort(arr, size);*/
-
+    //insertionSort(arr, size);
+    //std::cout << getFirstMissingNum(arr, size);
+    
     /*Recursion - Zadachi ot praktikum 14*/
     //std::cout << getSumFromOneToN(3);
     //std::cout << isNinK(0, 15234);

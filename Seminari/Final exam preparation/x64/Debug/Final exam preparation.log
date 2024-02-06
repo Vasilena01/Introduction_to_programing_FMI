@@ -1,0 +1,14 @@
+﻿  Final exam preparation.cpp
+D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Seminari\Final exam preparation\Header.h(305,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Final%20exam%20preparation.cpp')
+  
+D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Seminari\Final exam preparation\Header.h(469,8): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Final%20exam%20preparation.cpp')
+  
+D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Seminari\Final exam preparation\Header.h(469,22): warning C4018: '>': signed/unsigned mismatch
+  (compiling source file 'Final%20exam%20preparation.cpp')
+  
+D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Seminari\Final exam preparation\Header.h(933,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Final%20exam%20preparation.cpp')
+  
+  Final exam preparation.vcxproj -> D:\Projects\C++\УП - ЗАДАЧИ ОТ СЕМИНАРИ И ПРАКТИКУМ\Seminari\Final exam preparation\x64\Debug\Final exam preparation.exe
